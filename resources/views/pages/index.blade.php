@@ -16,11 +16,11 @@
                 <div class="list-group index-list">
                     @foreach($articles as $article)
                         <a href="{{ route('articles.show', ['article' => $article->id]) }}" class="list-group-item list-group-item-action">
-                            <div class="float-left index-list-tag" style="background-color: {{ $article->tags->first()->color }};"></div>
+                            <div class="float-left index-list-tag" style="background-color: {{ $article->tags->first()->color ?? '' }};"></div>
                             <div>
                                 <h5>{{ $article->title }}
                                     @foreach($article->tags as $tag)
-                                        <span class="badge badge-secondary float-right" style="background-color: {{ $tag->color }};">{{ $tag->name }}</span>
+                                        <span class="badge badge-secondary float-right" style="background-color: {{ $tag->color ?? '' }};">{{ $tag->name }}</span>
                                     @endforeach
                                 </h5>
                                 <div class="index-list-footer">

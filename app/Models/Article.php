@@ -18,7 +18,7 @@ class Article extends Model
 
     public function likes()
     {
-        return $this->belongsToMany(User::class, 'user_articles')->withTimestamps();
+        return $this->belongsToMany(User::class, 'article_user')->withTimestamps();
     }
 
     public function comments()

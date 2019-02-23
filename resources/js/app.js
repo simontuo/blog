@@ -94,10 +94,10 @@ window.axios.interceptors.response.use(response => {
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('noty', require('./components/Noty.vue'));
-Vue.component('thumbs-up-button', require('./components/ThumbsUpButton.vue'));
-Vue.component('comment-form', require('./components/CommentForm.vue'));
-Vue.component('markdown-textarea', require('./components/MarkdownTextarea.vue'));
+Vue.component('noty', require('./components/Noty.vue').default);
+Vue.component('thumbs-up-button', require('./components/ThumbsUpButton.vue').default);
+Vue.component('comment-form', require('./components/CommentForm.vue').default);
+Vue.component('markdown-textarea', require('./components/MarkdownTextarea.vue').default);
 
 
 /**
