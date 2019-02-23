@@ -13,8 +13,8 @@ class PagesController extends Controller
         $tags = Tag::withCount('articles')->get();
 
         $articles = Article::with([
-            'user', 'tags'
-        ])->get();
+                'user', 'tags'
+            ])->latest()->get();
 
         return view('pages.index', [
             'tags'     => $tags,
