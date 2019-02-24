@@ -17,7 +17,7 @@
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                         <label class="btn btn-secondary active">
                             <input type="radio" name="options" id="option1" autocomplete="off" checked>
-                            <i class="icon ion-ios-chatboxes"></i>
+                            <i class="fa fa-comment"></i>
                         </label>
                         <label class="btn btn-secondary padding-btn" @click="submit">
                             <input type="radio" name="options" id="option2" autocomplete="off"> 评论

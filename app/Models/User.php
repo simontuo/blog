@@ -40,7 +40,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function likes()
     {
-        return $this->belongsToMany(Article::class, 'user_articles')->withTimestamps();
+        return $this->belongsToMany(Article::class, 'article_user')->withTimestamps();
     }
 
     public function comments()

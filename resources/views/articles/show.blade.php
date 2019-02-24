@@ -16,11 +16,12 @@
                                 <div class="col-sm-3">
                                     <div class="card-title-btn-group btn-group float-right " role="group" aria-label="Basic example">
                                         <button type="button" class="btn btn-light">
-                                            <i class="icon ion-ios-thumbs-up text-success"></i>
+                                            <i class="fa fa-thumbs-up text-success"></i>
                                             <span class="text-dark"> 点赞</span>
                                         </button>
                                         <button type="button" class="btn btn-light">
-                                            <i class="icon ion-ios-star text-danger"></i>
+                                            <i class="fa fa-star text-danger"></i>
+
                                             <span class="text-dark"> 收藏</span>
                                         </button>
                                     </div>
@@ -113,8 +114,8 @@
                                 <img class="mr-3 rounded-circle"
                                      src="{{ $comment->user->avatar }}"
                                      alt="Generic placeholder image"
-                                     width="64"
-                                     height="64">
+                                     width="50"
+                                     height="50">
                                 <div class="media-body comment-show-contnet">
                                     <h5 class="mt-0">{{ $comment->user->name }}</h5>
                                     <div class="markdown-body">
