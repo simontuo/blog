@@ -53,6 +53,9 @@
                 {{--tags 开始--}}
                 @include('layouts._tag_list')
                 {{--tags 结束--}}
+                {{--resources 开始--}}
+                @include('layouts._resource_list')
+                {{--resources 结束--}}
             </div>
         </div>
     </div>
