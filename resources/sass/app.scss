@@ -277,5 +277,24 @@ a:hover {
     overflow-x: hidden;
 }
 
+.avatar-card {
+    box-shadow: 0px 1px 1px rgba(42, 42, 42, 0.1);
+    border-color: #e7e7e7;
+    background-color: #fff;
+    //border-top: 4px solid rgb(233, 30, 99);
+    margin-top: 0px;
+    border-radius: 3px;
+    color: #6c757d;
+    font-size: 15px;
+    padding: 20px;
+    text-align: center;
+}
+
+.user-resource {
+    background-color: #fff;
+    border-radius: 3px;
+    padding: 5px;
+}
+
 
 

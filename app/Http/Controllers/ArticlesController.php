@@ -7,6 +7,7 @@ use App\Http\Requests\StoreCommentRequest;
 use App\Libraries\ParsedownExtra;
 use App\Models\Article;
 use App\Models\Comment;
+use App\Models\Resource;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 
@@ -20,11 +21,13 @@ class ArticlesController extends Controller
         $article->load(['tags', 'likes', 'comments.user']);
         $article->increment('read_count');
 
-        $tags = Tag::withCount('articles')->get();
+        $tags      = Tag::withCount('articles')->get();
+        $resources = Resource::get();
 
         return view('articles.show', [
-            'article' => $article,
-            'tags'    => $tags,
+            'article'   => $article,
+            'tags'      => $tags,
+            'resources' => $resources,
         ]);
     }
 
@@ -42,7 +45,7 @@ class ArticlesController extends Controller
     public function comment(StoreCommentRequest $request, Article $article)
     {
         $comment = new Comment([
-           'content' => $request->{'content'},
+            'content' => $request->{'content'},
         ]);
 
         $comment->user()->associate(user());
