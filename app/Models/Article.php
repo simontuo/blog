@@ -18,11 +18,20 @@ class Article extends Model
 
     public function likes()
     {
-        return $this->belongsToMany(User::class, 'article_user')->withTimestamps();
+        return $this->belongsToMany(User::class, 'article_user')
+            ->where('article_user.type', 'like')
+            ->withTimestamps();
     }
 
     public function comments()
     {
         return $this->morphMany(Comment::class, 'commentable');
+    }
+
+    public function collections()
+    {
+        return $this->belongsToMany(User::class, 'article_user')
+            ->where('article_user.type', 'collection')
+            ->withTimestamps();
     }
 }

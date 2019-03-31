@@ -13,6 +13,14 @@ use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
 {
+    /**
+     * 文章展示
+     *
+     * author SimonTuo
+     * @param Request $request
+     * @param Article $article
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function show(Request $request, Article $article)
     {
         $parsedownExtra = new ParsedownExtra();
@@ -31,17 +39,33 @@ class ArticlesController extends Controller
         ]);
     }
 
-    public function like(Request $request, Article $article)
+    /**
+     * 文章点赞
+     *
+     * author SimonTuo
+     * @param Article $article
+     * @return \Illuminate\Http\JsonResponse
+     * @throws InvalidRequestException
+     */
+    public function like(Article $article)
     {
         if (user()->likes->where('id', $article->id)->count() > 0) {
             throw new InvalidRequestException('你已经点赞了');
         }
 
-        user()->likes()->attach($article->id);
+        user()->likes()->attach($article->id, ['type' => 'like']);
 
         return response()->json(['message' => '点赞成功']);
     }
 
+    /**
+     * 文章评论
+     *
+     * author SimonTuo
+     * @param StoreCommentRequest $request
+     * @param Article $article
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function comment(StoreCommentRequest $request, Article $article)
     {
         $comment = new Comment([
@@ -53,5 +77,22 @@ class ArticlesController extends Controller
         $article->comments()->save($comment);
 
         return response()->json(['message' => '评论成功']);
+    }
+
+    /**c
+     * author SimonTuo
+     * @param Article $article
+     * @return \Illuminate\Http\JsonResponse
+     * @throws InvalidRequestException
+     */
+    public function collect(Article $article)
+    {
+        if (user()->collections->where('id', $article->id)->count() > 0) {
+            throw new InvalidRequestException('你已经收藏了');
+        }
+
+        user()->collections()->attach($article->id, ['type' => 'collection']);
+
+        return response()->json(['message' => '收藏成功']);
     }
 }

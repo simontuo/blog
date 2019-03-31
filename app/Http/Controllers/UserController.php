@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function show(Request $request, User $user)
     {
-        $user->load('articles', 'comments.commentable');
+        $user->load('articles', 'comments.commentable', 'likes', 'collections');
 
         $tags      = Tag::withCount('articles')->get();
         $resources = Resource::get();

@@ -5,49 +5,22 @@
         <div class="row">
             <div class="col-sm-9">
                 <div class="user-resource">
-                    {{--<ul class="nav">--}}
-                        {{--<li class="nav-item">--}}
-                            {{--<a class="nav-link active" href="{{ route('users.show', ['user' => $user->id]) }}">文章</a>--}}
-                        {{--</li>--}}
-                        {{--<li class="nav-item">--}}
-                            {{--<a class="nav-link text-secondary" href="">评论</a>--}}
-                        {{--</li>--}}
-                        {{--<li class="nav-item">--}}
-                            {{--<a class="nav-link text-secondary" href="#">收藏</a>--}}
-                        {{--</li>--}}
-                        {{--<li class="nav-item">--}}
-                            {{--<a class="nav-link text-secondary" href="#">点赞</a>--}}
-                        {{--</li>--}}
-                    {{--</ul>--}}
-                    {{--<div>--}}
-                        {{--<ul class="list-group list-group-flush">--}}
-                            {{--@foreach($user->articles as $article)--}}
-                                {{--<li class="list-group-item">--}}
-                                    {{--<a class="text-secondary" href="{{ route('articles.show', ['article' => $article->id]) }}">--}}
-                                        {{--{{ $article->title }}--}}
-                                    {{--</a></li>--}}
-                            {{--@endforeach--}}
-                        {{--</ul>--}}
-                    {{--</div>--}}
-                    {{--<div class="text-center mb-2">--}}
-                        {{--<button type="button" class="btn btn-primary">加载更多</button>--}}
-                    {{--</div>--}}
                     <ul class="nav" id="pills-tab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">文章</a>
+                            <a class="nav-link active" id="pills-articles-tab" data-toggle="pill" href="#pills-articles" role="tab" aria-controls="pills-home" aria-selected="true">文章</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-secondary" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">评论</a>
+                            <a class="nav-link text-secondary" id="pills-comments-tab" data-toggle="pill" href="#pills-comments" role="tab" aria-controls="pills-profile" aria-selected="false">评论</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-secondary" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">收藏</a>
+                            <a class="nav-link text-secondary" id="pills-collections-tab" data-toggle="pill" href="#pills-collections" role="tab" aria-controls="pills-contact" aria-selected="false">收藏</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-secondary" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">点赞</a>
+                            <a class="nav-link text-secondary" id="pills-likes-tab" data-toggle="pill" href="#pills-likes" role="tab" aria-controls="pills-contact" aria-selected="false">点赞</a>
                         </li>
                     </ul>
                     <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <div class="tab-pane fade show active" id="pills-articles" role="tabpanel" aria-labelledby="pills-home-tab">
                             <ul class="list-group list-group-flush">
                                 @foreach($user->articles as $article)
                                     <li class="list-group-item">
@@ -60,7 +33,7 @@
                                 <button type="button" class="btn btn-primary">加载更多</button>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <div class="tab-pane fade" id="pills-comments" role="tabpanel" aria-labelledby="pills-profile-tab">
                             @foreach($user->comments as $comment)
                                 <div class="media pl-3 pr-3 pt-2 mb-2">
                                     <div class="media-body comment-show-contnet">
@@ -83,7 +56,32 @@
                                     <button type="button" class="btn btn-primary">加载更多</button>
                                 </div>
                         </div>
-                        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+                        <div class="tab-pane fade" id="pills-collections" role="tabpanel" aria-labelledby="pills-contact-tab">
+                            <ul class="list-group list-group-flush">
+                                @foreach($user->collections as $collection)
+                                    <li class="list-group-item">
+                                        <a class="text-secondary" href="{{ route('articles.show', ['article' => $collection->id]) }}">
+                                            {{ $collection->title }}
+                                        </a></li>
+                                @endforeach
+                            </ul>
+                            <div class="container index-loading-button">
+                                <button type="button" class="btn btn-primary">加载更多</button>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-likes" role="tabpanel" aria-labelledby="pills-contact-tab">
+                            <ul class="list-group list-group-flush">
+                                @foreach($user->likes as $like)
+                                    <li class="list-group-item">
+                                        <a class="text-secondary" href="{{ route('articles.show', ['article' => $like->id]) }}">
+                                            {{ $like->title }}
+                                        </a></li>
+                                @endforeach
+                            </ul>
+                            <div class="container index-loading-button">
+                                <button type="button" class="btn btn-primary">加载更多</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

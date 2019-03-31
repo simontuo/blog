@@ -15,15 +15,7 @@
                                 </div>
                                 <div class="col-sm-3">
                                     <div class="card-title-btn-group btn-group float-right " role="group" aria-label="Basic example">
-                                        <button type="button" class="btn btn-light">
-                                            <i class="fa fa-thumbs-up text-success"></i>
-                                            <span class="text-dark"> 点赞</span>
-                                        </button>
-                                        <button type="button" class="btn btn-light">
-                                            <i class="fa fa-star text-danger"></i>
-
-                                            <span class="text-dark"> 收藏</span>
-                                        </button>
+                                        <collection-button id="{{ $article->id }}"></collection-button>
                                     </div>
                                 </div>
                             </div>
