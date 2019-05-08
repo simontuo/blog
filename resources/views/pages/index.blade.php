@@ -33,9 +33,11 @@
                                     <span>
                                         <i class="icon ion-ios-thumbs-up"></i> 12
                                     </span>
-                                    <span>
-                                        <i class="icon ion-ios-link"></i> 原文链接
-                                    </span>
+                                    @if($article->type == 'carry')
+                                        <span>
+                                            <i class="icon ion-ios-link"></i> 原文链接
+                                        </span>
+                                    @endif
                                 </div>
                             </div>
                         </a>
@@ -44,7 +46,11 @@
                 {{--列表结束--}}
                 {{--加载按钮 开始--}}
                 <div class="container index-loading-button">
-                    <button type="button" class="btn btn-primary">加载更多</button>
+                    @if($articles->count() >= 30)
+                        <button type="button" class="btn btn-primary">加载更多</button>
+                    @else
+                        <p class="mt-2">没有更多了~</p>
+                    @endif
                 </div>
                 {{--加载按钮 结束--}}
             </div>
