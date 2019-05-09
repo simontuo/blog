@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="container">
         <p >
-            由 <a href="http://weibo.com/u/1837553744?is_hot=1" target="_blank">Simontuo</a> 设计和编码
+            由 <a href="https://github.com/simontuo" target="_blank">Simontuo</a> 设计和编码
             <i class="fa fa-heart text-danger"></i>
         </p>
 
