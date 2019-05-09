@@ -79,10 +79,12 @@ class ArticlesController extends Controller
         return response()->json(['message' => '评论成功']);
     }
 
-    /**c
+    /**
+     * 收藏
+     *
      * author SimonTuo
      * @param Article $article
-     * @return \Illuminate\Http\JsonResponse
+     * @return mixed
      * @throws InvalidRequestException
      */
     public function collect(Article $article)
