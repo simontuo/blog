@@ -1,5 +1,5 @@
 <template>
-    <button type="button" class="btn btn-light" @click="collect">
+    <button type="button" class="btn btn-light" @click="collect" :disabled="loading">
         <i class="fa fa-circle-o-notch fa-spin" v-if="loading"></i>
         <i class="fa fa-star text-danger" v-else></i>
         <span class="text-dark"> 收藏</span>
