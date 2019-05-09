@@ -17,7 +17,8 @@
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                         <label class="btn btn-secondary active">
                             <input type="radio" name="options" id="option1" autocomplete="off" checked>
-                            <i class="fa fa-comment"></i>
+                            <i class="fa fa-circle-o-notch fa-spin" v-if="loading"></i>
+                            <i class="fa fa-comment" v-else></i>
                         </label>
                         <label class="btn btn-secondary padding-btn" @click="submit">
                             <input type="radio" name="options" id="option2" autocomplete="off"> 评论
@@ -36,11 +37,14 @@
         data() {
             return {
                 content: '',
+                loading: false,
             }
         },
         methods: {
             submit() {
+                this.loading = true;
                 axios.post('/articles/' + this.id + '/comment', {content: this.content}).then(response => {
+                    this.loading = false;
                     noty('info', response.data.message);
                     setTimeout("window.location.reload()", 1000);
                 });

@@ -38,15 +38,17 @@
                                         <span class="badge badge-secondary" style="background-color: {{ $tag->color }};">{{ $tag->name }}</span>
                                     @endforeach
                                 </div>
-                                <div class="card-">
-                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                        <strong>原文作者：大力哥</strong> 该文章为搬运文章，若涉及侵权马上删除，原文链接
-                                        <a href="#">请点击</a>.
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
+                                @if($article->type == 'carry')
+                                    <div>
+                                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                            <strong>原文作者：大力哥</strong> 该文章为搬运文章，若涉及侵权马上删除，原文链接
+                                            <a href="#">请点击</a>.
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
                             </div>
                             {{--文章脚部 结束--}}
                         </div>
