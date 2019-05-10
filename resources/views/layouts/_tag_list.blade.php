@@ -1,6 +1,8 @@
 <ul class="list-group tab-list mb-3">
     <li class="list-group-item disabled">
-        <i class="icon ion-ios-apps"></i> 标签
+{{--        <i class="icon ion-ios-apps"></i>--}}
+{{--        <i class="fa fa-tags" ></i>--}}
+        标签
     </li>
     @foreach($tags as $tag)
         <li class="list-group-item">
