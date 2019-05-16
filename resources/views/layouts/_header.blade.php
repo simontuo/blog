@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-md navbar-light navbar-static-top">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravels') }}
+            {{--{{ config('app.name', 'Laravels') }}--}}
+            <img src="http://photo.maguas.com/%E5%BD%A9%E8%89%B2small.png" width="100" height="30" class="d-inline-block align-top" alt="Maguas">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
