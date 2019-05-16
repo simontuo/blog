@@ -7,6 +7,7 @@ use App\Http\Requests\StoreCommentRequest;
 use App\Libraries\ParsedownExtra;
 use App\Models\Article;
 use App\Models\Comment;
+use App\Models\Document;
 use App\Models\Resource;
 use App\Models\Tag;
 use Illuminate\Http\Request;
@@ -31,11 +32,13 @@ class ArticlesController extends Controller
 
         $tags      = Tag::withCount('articles')->get();
         $resources = Resource::get();
+        $documents = Document::get();
 
         return view('articles.show', [
             'article'   => $article,
             'tags'      => $tags,
             'resources' => $resources,
+            'documents' => $documents,
         ]);
     }
 
@@ -79,10 +82,12 @@ class ArticlesController extends Controller
         return response()->json(['message' => '评论成功']);
     }
 
-    /**c
+    /**
+     * 收藏
+     *
      * author SimonTuo
      * @param Article $article
-     * @return \Illuminate\Http\JsonResponse
+     * @return mixed
      * @throws InvalidRequestException
      */
     public function collect(Article $article)

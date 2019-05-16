@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Document;
 use App\Models\Resource;
 use App\Models\Tag;
 use Illuminate\Http\Request;
@@ -15,6 +16,8 @@ class PagesController extends Controller
 
         $resources = Resource::get();
 
+        $documents = Document::get();
+
         $articles = Article::with([
             'user', 'tags'
         ])->latest()->get();
@@ -23,6 +26,7 @@ class PagesController extends Controller
             'tags'      => $tags,
             'articles'  => $articles,
             'resources' => $resources,
+            'documents' => $documents,
         ]);
     }
 }

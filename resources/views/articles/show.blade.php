@@ -148,6 +148,9 @@
                 {{--resources 开始--}}
                 @include('layouts._resource_list')
                 {{--resources 结束--}}
+                {{--document 开始--}}
+                @include('layouts._document_list')
+                {{--document 结束--}}
             </div>
         </div>
     </div>
