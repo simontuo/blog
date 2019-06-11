@@ -23,15 +23,24 @@
                                         <span class="badge badge-secondary float-right" style="background-color: {{ $tag->color ?? '' }};">{{ $tag->name }}</span>
                                     @endforeach
                                 </h5>
-                                <div class="index-list-footer">
+                                <div class="index-list-footer text-secondary">
                                     <span>
-                                        <i class="icon ion-ios-at"></i> {{ $article->user->name }}
+                                        <i class="icon ion-ios-at"></i>
+                                        <i class="fa fa-user-o" aria-hidden="true"></i> {{ $article->user->name }}
                                     </span>
                                     <span>
-                                        <i class="icon ion-ios-eye"></i> 11
+                                        <i class="icon ion-ios-eye"></i>
+                                        <i class="fa fa-eye" aria-hidden="true"></i> {{ $article->read_count }}
                                     </span>
                                     <span>
-                                        <i class="icon ion-ios-thumbs-up"></i> 12
+                                        <i class="icon ion-ios-thumbs-up"></i>
+                                        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                                        {{ $article->likes->count() }}
+                                    </span>
+                                    <span>
+                                        <i class="icon ion-ios-thumbs-up"></i>
+                                        <i class="fa fa-comments-o" aria-hidden="true"></i>
+                                        {{ $article->comments->count() }}
                                     </span>
                                     @if($article->type == 'carry')
                                         <span>

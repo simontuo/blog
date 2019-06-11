@@ -19,7 +19,7 @@ class PagesController extends Controller
         $documents = Document::get();
 
         $articles = Article::with([
-            'user', 'tags'
+            'user', 'tags', 'likes', 'comments'
         ])->latest()->get();
 
         return view('pages.index', [
