@@ -82,6 +82,13 @@ class ArticlesController extends Controller
         return response()->json(['message' => '评论成功']);
     }
 
+    public function commentSort(Request $request, Article $article)
+    {
+        $comments = $article->comments()->orderBy($request->sort_query)->get();
+
+        return response()->json(['comments' => $comments]);
+    }
+
     /**
      * 收藏
      *

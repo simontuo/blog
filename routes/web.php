@@ -14,6 +14,7 @@
 Auth::routes(['verify' => true]);
 Route::get('/', 'PagesController@index')->name('index');
 Route::get('/articles/{article}', 'ArticlesController@show')->name('articles.show');
+Route::get('/articles/{article}/comment/sort', 'ArticlesController@commentSort')->name('articles.comment.sort');
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('/articles/{article}/like', 'ArticlesController@like')->name('articles.like');
     Route::post('/articles/{article}/collect', 'ArticlesController@collect')->name('articles.collect');
