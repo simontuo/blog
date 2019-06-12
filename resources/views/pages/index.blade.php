@@ -18,15 +18,16 @@
                         <a href="{{ route('articles.show', ['article' => $article->id]) }}" class="list-group-item list-group-item-action">
                             <div class="float-left index-list-tag" style="background-color: {{ $article->tags->first()->color ?? '' }};"></div>
                             <div>
-                                <h5>{{ $article->title }}
+                                <span class="index-list-title">
+                                    {{ $article->title }}
                                     @foreach($article->tags as $tag)
                                         <span class="badge badge-secondary float-right" style="background-color: {{ $tag->color ?? '' }};">{{ $tag->name }}</span>
                                     @endforeach
-                                </h5>
+                                </span>
                                 <div class="index-list-footer text-secondary">
                                     <span>
                                         <i class="icon ion-ios-at"></i>
-                                        <i class="fa fa-user-o" aria-hidden="true"></i> {{ $article->user->name }}
+                                        {{ $article->user->name }}
                                     </span>
                                     <span>
                                         <i class="icon ion-ios-eye"></i>
