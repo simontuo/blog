@@ -18,7 +18,7 @@ class PagesController extends Controller
 
         $documents = Document::get();
 
-        $articles = Article::with([
+        $articles = Article::isPublic(true)->with([
             'user', 'tags', 'likes', 'comments'
         ])->latest()->get();
 
