@@ -16,7 +16,6 @@
                         </div>
                     </div>
                     <div class="media" v-for="comment in this.sortComments">
-                        <ball-beat color="#3490dc" size="20px"></ball-beat>
                         <img class="mr-3 rounded-circle"
                              :src="comment.user.avatar"
                              alt="Generic placeholder image"
