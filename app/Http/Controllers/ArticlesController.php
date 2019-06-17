@@ -27,7 +27,9 @@ class ArticlesController extends Controller
         $parsedownExtra = new ParsedownExtra();
 
         $article->content = $parsedownExtra->text($article->content);
-        $article->load(['tags', 'likes', 'comments.user']);
+        $article->load(['tags', 'likes', 'comments.user', 'comments' => function($query) {
+            $query->withCount('likes');
+        }]);
         $article->increment('read_count');
 
         $tags      = Tag::withCount('articles')->get();

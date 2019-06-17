@@ -28,11 +28,11 @@
                                 <div class="row">
                                     <div class="media-footer-sub col-sm-8">
                                         <span>评论于 {{ comment.created_at }}</span> -
-                                        <span>点赞数 90</span>
+                                        <span>点赞数 {{ comment.likes_count }}</span>
                                     </div>
                                     <div class="col-sm-4 media-footer-btn-group">
                                         <div class="btn-group" role="group" aria-label="Basic example">
-                                            <button type="button" class="btn btn-light text-secondary">点赞</button>
+                                            <comment-thumbs-up-button :id="comment.id"></comment-thumbs-up-button>
                                             <button type="button" class="btn btn-light text-secondary">回复</button>
                                         </div>
                                     </div>

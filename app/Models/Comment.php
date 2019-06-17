@@ -30,5 +30,10 @@ class Comment extends Model
 
         return $parsedownExtra->text($value);
     }
+
+    public function likes()
+    {
+        return $this->belongsToMany(User::class, 'comment_user')
+            ->withTimestamps();
+    }
 }
- 

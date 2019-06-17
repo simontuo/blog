@@ -36,6 +36,7 @@ require('./lib/handlehttp');
 
 Vue.component('noty', require('./components/Noty.vue').default);
 Vue.component('thumbs-up-button', require('./components/ThumbsUpButton.vue').default);
+Vue.component('comment-thumbs-up-button', require('./components/CommentThumbsUpButton.vue').default);
 Vue.component('collection-button', require('./components/CollectionButtom.vue').default);
 Vue.component('comment-form', require('./components/CommentForm.vue').default);
 Vue.component('comment-list', require('./components/CommentList.vue').default);

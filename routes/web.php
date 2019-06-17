@@ -20,4 +20,6 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('/articles/{article}/collect', 'ArticlesController@collect')->name('articles.collect');
     Route::post('/articles/{article}/comment', 'ArticlesController@comment')->name('articles.comment');
     Route::get('/users/{user}', 'UserController@show')->name('users.show');
+    Route::post('/comments/{comment}/like', 'CommentController@like')->name('comments.like');
+
 });
