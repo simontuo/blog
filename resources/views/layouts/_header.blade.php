@@ -14,9 +14,14 @@
             <ul class="navbar-nav mr-auto">
 
             </ul>
-
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
+                <form class="form-inline" action="{{ route('articles.search') }}">
+                    <input class="form-control mr-sm-2" type="search" placeholder="全文搜索" aria-label="Search">
+                    <button class="btn btn-light my-2 my-sm-0 mr-sm-2" type="submit">
+                        <i class="fa fa-search text-secondary"></i>
+                    </button>
+                </form>
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">

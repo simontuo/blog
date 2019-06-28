@@ -2,6 +2,11 @@
 
 return [
 
+    /**
+     * 应用id
+     */
+    'app_id' => 'eaeyxcTK8Bu3OfdZZS7VCB4PatqFNBbW',
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -166,6 +171,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Arcanedev\LogViewer\LogViewerServiceProvider::class,
 
         /*
          * Application Service Providers...

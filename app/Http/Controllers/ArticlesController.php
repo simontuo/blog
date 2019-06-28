@@ -100,4 +100,9 @@ class ArticlesController extends Controller
 
         return response()->json(['message' => '收藏成功']);
     }
+
+    public function search(Request $request)
+    {
+        abort(404, '这个程序员很懒，功能还在实现中。');
+    }
 }
