@@ -27,7 +27,9 @@ class ArticlesController extends Controller
         $parsedownExtra = new ParsedownExtra();
 
         $article->content = $parsedownExtra->text($article->content);
-        $article->load(['tags', 'likes', 'comments.user']);
+        $article->load(['tags', 'likes', 'comments.user', 'comments' => function($query) {
+            $query->withCount('likes');
+        }]);
         $article->increment('read_count');
 
         $tags      = Tag::withCount('articles')->get();
@@ -80,6 +82,20 @@ class ArticlesController extends Controller
         $article->comments()->save($comment);
 
         return response()->json(['message' => '评论成功']);
+    }
+
+    /**
+     * 文章评论排序
+     *
+     * @param Request $request
+     * @param Article $article
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function commentSort(Request $request, Article $article)
+    {
+        $comments = $article->comments()->orderBy($request->sort_query)->with('user')->get();
+
+        return response()->json(['comments' => $comments]);
     }
 
     /**

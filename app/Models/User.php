@@ -38,10 +38,26 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Article::class);
     }
 
+    /**
+     * 文章点赞
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function likes()
     {
         return $this->belongsToMany(Article::class, 'article_user')
             ->where('article_user.type', 'like')
+            ->withTimestamps();
+    }
+
+    /**
+     * 评论点赞
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function commentLikes()
+    {
+        return $this->belongsToMany(Comment::class, 'comment_user')
             ->withTimestamps();
     }
 

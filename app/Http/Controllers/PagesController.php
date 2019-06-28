@@ -18,8 +18,8 @@ class PagesController extends Controller
 
         $documents = Document::get();
 
-        $articles = Article::with([
-            'user', 'tags'
+        $articles = Article::isPublic(true)->with([
+            'user', 'tags', 'likes', 'comments'
         ])->latest()->get();
 
         return view('pages.index', [

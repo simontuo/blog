@@ -34,4 +34,9 @@ class Article extends Model
             ->where('article_user.type', 'collection')
             ->withTimestamps();
     }
+
+    public function scopeIsPublic($query, bool $isPublic)
+    {
+        return $query->where('is_public', $isPublic);
+    }
 }

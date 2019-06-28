@@ -18,20 +18,30 @@
                         <a href="{{ route('articles.show', ['article' => $article->id]) }}" class="list-group-item list-group-item-action">
                             <div class="float-left index-list-tag" style="background-color: {{ $article->tags->first()->color ?? '' }};"></div>
                             <div>
-                                <h5>{{ $article->title }}
+                                <span class="index-list-title">
+                                    {{ $article->title }}
                                     @foreach($article->tags as $tag)
                                         <span class="badge badge-secondary float-right" style="background-color: {{ $tag->color ?? '' }};">{{ $tag->name }}</span>
                                     @endforeach
-                                </h5>
-                                <div class="index-list-footer">
+                                </span>
+                                <div class="index-list-footer text-secondary">
                                     <span>
-                                        <i class="icon ion-ios-at"></i> {{ $article->user->name }}
+                                        <i class="icon ion-ios-at"></i>
+                                        {{ $article->user->name }}
                                     </span>
                                     <span>
-                                        <i class="icon ion-ios-eye"></i> 11
+                                        <i class="icon ion-ios-eye"></i>
+                                        <i class="fa fa-eye" aria-hidden="true"></i> {{ $article->read_count }}
                                     </span>
                                     <span>
-                                        <i class="icon ion-ios-thumbs-up"></i> 12
+                                        <i class="icon ion-ios-thumbs-up"></i>
+                                        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                                        {{ $article->likes->count() }}
+                                    </span>
+                                    <span>
+                                        <i class="icon ion-ios-thumbs-up"></i>
+                                        <i class="fa fa-comments-o" aria-hidden="true"></i>
+                                        {{ $article->comments->count() }}
                                     </span>
                                     @if($article->type == 'carry')
                                         <span>

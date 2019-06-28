@@ -12,6 +12,9 @@
 @import "~noty/src/themes/mint.scss";
 // nprogress
 @import '~nprogress/nprogress.css';
+// skeleton
+//@import 'normalize';
+//@import 'skeleton';
 
 .navbar-laravel {
     background-color: #fff;
@@ -136,12 +139,15 @@ a:hover {
             margin-right: 5px;
         }
     }
+    .index-list-title {
+        font-size: 16px;
+    }
     .index-list-footer {
-        //font-size: 13px;
+        font-size: 13px;
         .icon {
             font-size: 15px;
         }
-        margin-top: 10px;
+        margin-top: 5px;
         span {
             margin-right: 5px;
         }
